@@ -4,7 +4,7 @@
 
 This Privacy Policy explains how the Discord applications **Vapor** and **Reverie** (together, the “Bots”) access, use, store, and protect information while operating in the Discord community in which they are installed.
 
-Vapor and Reverie are community-specific Discord bots that work together to provide aesthetic media posts, contextual responses, community currency and rewards, activity features, moderation and server-management functions, and related community features.
+Vapor and Reverie are community-specific Discord bots that work together to provide aesthetic media posts, contextual responses, community currency and rewards, activity features, moderation and server-management functions, and related community features. Vapor is the primary event-processing application, while Reverie is used primarily as a secondary output identity for shared community features.
 
 This policy applies only to Vapor and Reverie. Discord’s own handling of information is governed by Discord’s policies.
 
@@ -13,7 +13,7 @@ This policy applies only to Vapor and Reverie. Discord’s own handling of infor
 Depending on the feature being used, the Bots may access or process the following Discord data:
 
 - **Discord account and member information**, such as Discord user IDs, usernames, display names or nicknames, avatar information, server membership status, roles, permissions, and member join/update/leave events.
-- **Message content**, when necessary for features that depend on the contents of ordinary server messages. Examples include contextual phrase-triggered responses, command handling, moderation/filtering, activity-related functions, and determining when automated community posts should occur without awkwardly interrupting conversation.
+- **Message content**, when necessary for features that depend on the contents of ordinary server messages. Examples include contextual phrase-triggered responses, command handling, moderation/filtering, activity-related functions, welcome-phrase recognition, and determining when automated community posts should occur without awkwardly interrupting conversation.
 - **Message and channel metadata**, such as message IDs, channel IDs, timestamps, reaction information, and similar Discord identifiers needed for bot functionality.
 - **Community feature data**, such as Vapor currency balances, scores, daily reward or streak state, leaderboard values, cooldowns, timers, activity state, shop/reward state, collection or trading-card state, and other bot-specific settings or progress associated with a Discord user ID.
 
@@ -23,13 +23,19 @@ The Bots do not require users to provide real names, postal addresses, payment-c
 
 Message content is processed only when needed to provide bot functionality.
 
-For example, Vapor may examine the text of an ordinary server message to determine whether it matches a configured contextual response, whether moderation or filtering logic applies, whether a legacy text command was used, or whether conversation activity should affect the timing of an automated post.
+For example, Vapor may examine the text of an ordinary server message to determine whether it matches a configured contextual response, whether moderation or filtering logic applies, whether a legacy text command was deliberately used, whether a welcome phrase was used during a welcoming session, or whether conversation activity should affect community activity features and the timing of automated posts.
 
-**The Bots do not intentionally store the body of ordinary user messages as an off-platform message archive. Raw user message content is not intentionally written to application logs.**
+**The Bots do not intentionally store the body of ordinary user messages as an off-platform message archive. Raw user message content and user-supplied command arguments are not intentionally written to application logs.**
 
 Certain non-content information related to messages, such as message IDs, channel IDs, timestamps, or derived activity state, may be stored when needed for bot functionality.
 
-Because some message-dependent features operate at the server level, there is not currently a per-user opt-out from the Bots transiently processing messages sent in server channels where those features are active.
+### Message-content opt-out
+
+Users can use the **`/privacy`** command in Discord to opt out of, opt back into, or check their status for optional message-content features.
+
+When a user opts out, their messages are excluded from optional passive message-content features such as ambient/contextual response matching, welcome-phrase recognition, and message-derived activity or score tracking. The preference is stored as the user’s Discord user ID in a Redis set and is cached in memory so ordinary messages do not require a database lookup.
+
+Opting out does **not** disable server moderation, safety, anti-abuse, or filtering systems that may need to inspect messages posted in the community. It also does not prevent the Bots from processing commands or interactions that the user deliberately invokes. Opting out does not automatically erase existing wallets, scores, or other historical community state; data deletion is handled separately as described below.
 
 ## 3. How information is used
 
@@ -46,7 +52,7 @@ Discord data is used only to operate and maintain the Bots and the community fea
 
 ## 4. Storage and service providers
 
-Some Discord API data and bot state is stored outside Discord because persistent features such as wallets, scores, streaks, leaderboards, and timers must survive bot restarts.
+Some Discord API data and bot state is stored outside Discord because persistent features such as wallets, scores, streaks, leaderboards, privacy preferences, and timers must survive bot restarts.
 
 The Bots use third-party infrastructure providers to operate. These may include application-hosting providers, managed database providers, and Google services used for media storage or retrieval. At the time of this policy, infrastructure includes services such as **Heroku**, **Redis Cloud**, and **Google Cloud Storage / Google Drive APIs**.
 
