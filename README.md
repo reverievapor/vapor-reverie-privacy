@@ -72,7 +72,7 @@ Some member-linked data is automatically removed or cleaned up when a member lea
 
 Backups may temporarily contain data that has been deleted from the live database. Such data is removed as backup copies expire or are rotated through the normal backup-retention process.
 
-A user may request deletion of stored data associated with their Discord account by contacting an administrator or moderator of the Discord community in which Vapor and Reverie operate. The user should provide their Discord account or user ID as needed so the correct records can be located. Requests will be handled as reasonably and promptly as possible, subject to data that must temporarily remain in backups or be retained where legally required.
+A user may request deletion of stored data associated with their Discord account directly through Vapor by using the **`/privacy`** command and selecting **`Request data deletion`**. Vapor forwards the request to a dedicated private staff Discord channel for manual processing and includes the user’s Discord user ID so the correct stored records can be identified. The user receives a private confirmation that the request was submitted. Users may also contact an administrator or moderator of the Discord community as an alternative method of requesting deletion. Requests will be handled as reasonably and promptly as possible, subject to data that must temporarily remain in backups or be retained where legally required.
 
 ## 7. Data sharing
 
@@ -94,6 +94,6 @@ This policy may be updated when the Bots’ functionality, infrastructure, or da
 
 ## 10. Contact
 
-For privacy questions, requests to access or delete stored bot data, or concerns about Vapor or Reverie’s data practices, contact an administrator or moderator of the Discord community in which the Bots operate.
+For requests to delete stored bot data, users may use Vapor’s **`/privacy`** command and select **`Request data deletion`**, or contact an administrator or moderator of the Discord community in which the Bots operate. For privacy questions, requests to access stored data, or other concerns about Vapor or Reverie’s data practices, contact an administrator or moderator of the community.
 
 Please do not post sensitive personal information in public GitHub issues.
