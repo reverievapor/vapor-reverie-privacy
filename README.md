@@ -25,7 +25,7 @@ Message content is processed only when needed to provide bot functionality.
 
 For example, Vapor may examine the text of an ordinary server message to determine whether it matches a configured contextual response, whether moderation or filtering logic applies, whether a legacy text command was deliberately used, whether a welcome phrase was used during a welcoming session, or whether conversation activity should affect community activity features and the timing of automated posts.
 
-**The Bots do not intentionally store the body of ordinary user messages as an off-platform message archive. Raw user message content and user-supplied command arguments are not intentionally written to application logs.**
+**The Bots do not intentionally store the body of ordinary user messages as an off-platform message archive. Raw ordinary user message content is not intentionally written to application logs.** The command dispatcher records the command invoked rather than logging the full text and arguments of a prefix command.
 
 Certain non-content information related to messages, such as message IDs, channel IDs, timestamps, or derived activity state, may be stored when needed for bot functionality.
 
